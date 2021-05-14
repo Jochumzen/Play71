@@ -1,4 +1,4 @@
-package com.example.play71
+package com.example.play71.cache
 
 object CacheErrors {
 

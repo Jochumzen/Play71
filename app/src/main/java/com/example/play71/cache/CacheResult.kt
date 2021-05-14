@@ -1,4 +1,4 @@
-package com.example.play71
+package com.example.play71.cache
 
 sealed class CacheResult<out T> {
     data class Success<out T>(val value: T): CacheResult<T>()

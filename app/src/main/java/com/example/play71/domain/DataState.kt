@@ -1,16 +1,20 @@
-package com.example.play71
+package com.example.play71.domain
+
+import com.example.play71.Response
+import com.example.play71.StateEvent
+import com.example.play71.StateMessage
 
 data class DataState<T>(
-        var stateMessage: StateMessage? = null,
-        var data: T? = null,
-        var stateEvent: StateEvent? = null
+    var stateMessage: StateMessage? = null,
+    var data: T? = null,
+    var stateEvent: StateEvent? = null
 ) {
 
     companion object {
 
         fun <T> error(
-                response: Response,
-                stateEvent: StateEvent?
+            response: Response,
+            stateEvent: StateEvent?
         ): DataState<T> {
             return DataState(
                     stateMessage = StateMessage(
@@ -22,9 +26,9 @@ data class DataState<T>(
         }
 
         fun <T> data(
-                response: Response?,
-                data: T? = null,
-                stateEvent: StateEvent?
+            response: Response?,
+            data: T? = null,
+            stateEvent: StateEvent?
         ): DataState<T> {
             return DataState(
                     stateMessage = response?.let {

@@ -1,12 +1,17 @@
-package com.example.play71
+package com.example.play71.cache
 
-import com.example.play71.CacheErrors.CACHE_DATA_NULL
+import com.example.play71.MessageType
+import com.example.play71.Response
+import com.example.play71.StateEvent
+import com.example.play71.UIComponentType
+import com.example.play71.cache.CacheErrors.CACHE_DATA_NULL
+import com.example.play71.domain.DataState
 
 abstract class CacheResponseHandler <ViewState, Data>(
     private val response: CacheResult<Data?>,
     private val stateEvent: StateEvent?
 ) {
-    suspend fun getResult(): DataState<ViewState>? {
+    fun getResult(): DataState<ViewState>? {
 
         return when(response){
 
@@ -40,5 +45,5 @@ abstract class CacheResponseHandler <ViewState, Data>(
         }
     }
 
-    abstract suspend fun handleSuccess(resultObj: Data): DataState<ViewState>?
+    abstract fun handleSuccess(resultObj: Data): DataState<ViewState>?
 }
